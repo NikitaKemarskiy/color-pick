@@ -1,0 +1,24 @@
+{
+  "name": "color-pick",
+  "version": "1.0.0",
+  "description": "Web service for picking colors from the JPEG image.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaKemarskiy/color-pick.git"
+  },
+  "author": "Kemarskiy Nikita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaKemarskiy/color-pick/issues"
+  },
+  "homepage": "https://github.com/NikitaKemarskiy/color-pick#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jpeg-js": "^0.3.6"
+  }
+}
