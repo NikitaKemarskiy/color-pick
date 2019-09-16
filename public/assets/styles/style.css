@@ -1,0 +1,160 @@
+body{
+  margin: 0;
+  padding: 0; 
+  background: #353535;
+  width: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.site{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 9vh 85vh 5vh;
+}
+/*--------BUTTONS---------*/
+
+button{
+  border: 0;
+  background: cyan;
+  color: #252525;
+  text-transform: uppercase;
+  border-radius: 2px;
+  height: 40px;
+  margin-left: 10px;
+  vertical-align: middle;
+  text-align: center;
+  transition: all .1s linear;
+}
+button:hover{
+  border: 2px solid black;
+}
+button:active{
+  background: red;
+}
+
+
+
+/*--------HEADER---------*/
+header{
+  width: 100%;
+  background: #282828;
+  color: cyan;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_title{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+.header_buttons{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 1fr));
+  margin-right: 20px;
+}
+
+/*---------MAIN-----------*/
+
+main{
+  background: #1F1F1F;
+  width: 100%;
+}
+
+
+
+
+.colors{
+    text-align: center;
+
+  display: grid;
+  width: 61.8%;
+  max-width: 61.8%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  overflow-y: none;
+  overflow-x: none;
+}
+
+.color_text{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity .2s linear;
+  -moz-user-select: none; /* Mozilla Firefox */
+  -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+  -o-user-select: none; /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+.color{
+  margin: 0;
+  padding: 0;
+  transition: transform .2s ease-in-out;
+  color: white;
+  display: inline-block;
+}
+.color:nth-child(1){
+  background: #00ffff;
+}
+
+.color:nth-child(2){
+  background: #000000;
+}
+
+.color:nth-child(3){
+  background: blue;
+}
+
+.color:nth-child(4){
+  background: #ff0000;
+}
+
+.color:nth-child(5){
+  background: #ffff00;
+}
+
+.color:nth-child(6){
+  background: #ff4500;
+}
+
+
+.color:hover{
+  transform: scale(1.05);
+}
+
+.color:hover .color_text{
+  opacity: 1;
+  font-size: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*--------FOOTER---------*/
+footer{
+  height: 6vh;
+  background: #282828; 
+  color: cyan;
+  width: 100%;
+  align-items: center;
+}
+
+.github-logo{
+  fill: cyan;
+  height: 5vh;
+}
