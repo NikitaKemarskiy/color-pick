@@ -1,27 +1,27 @@
+/*THIS FUNCTION is activated when user clicks inside the grid of colors*/
 function copyToClip() {
-  const x = event.clientX, y = event.clientY;
-  const elementMouseIsOver = document.elementFromPoint(x, y);
+  const x = event.clientX, y = event.clientY;                         //Here we get the position of mouse when click is done.
+  const elementMouseIsOver = document.elementFromPoint(x, y);         //Here we get the element from that position.
   let style;
-  if (elementMouseIsOver.className == 'color') {
-    style = window.getComputedStyle(elementMouseIsOver);
+  if (elementMouseIsOver.className == 'color') {                      //Here we check if the click was on the .color element
+    style = window.getComputedStyle(elementMouseIsOver);              //and save all the styles from that element.
   }
-  else if (elementMouseIsOver.className == 'color_text') {
-    style = window.getComputedStyle(elementMouseIsOver.parentNode);
-  }
-  else if (elementMouseIsOver.className == 'colors') {
+  else if (elementMouseIsOver.className == 'color_text') {            //Here we check if the click was on the .color_text element
+    style = window.getComputedStyle(elementMouseIsOver.parentNode);   //and save all the styles from his parents element
+  }                                                                   //because its parent is always .color.
+  else if (elementMouseIsOver.className == 'colors') {                //All other cases.
     return;
   } 
-    const color = style.getPropertyValue('background-color');
-    const hexColor = RGBParser(color);
-    let dummy = $('<input>').val(hexColor).appendTo('body').select();
-    document.execCommand('copy');
-    dummy.remove();
-    alert(color + " copied in HEX!");
-  
+  const color = style.getPropertyValue('background-color');           //Here we get the value of background-color.
+  const hexColor = RGBParser(color);                                  //Here we save the color as hexademical;
+  let dummy = $('<input>').val(hexColor).appendTo('body').select();   //here we create a temporary input field to paste 
+  document.execCommand('copy');                                       //and copy the color from it.
+  dummy.remove();                                                     //Here we remove the temporary field.
+  console.log(color + " copied in HEX!");                             //info for developers.
 }
   
-
-function rgbElementToHex(c) {
+/*THIS FUNCTION converts a part of rgb(r, g or b) into a hexademical number*/ 
+function rgbElementToHex(c) {  
   var hex = c.toString(16);
   if (hex.length < 2) {
     hex = "0" + hex;
@@ -29,14 +29,16 @@ function rgbElementToHex(c) {
   return hex;
 }
 
+/*THIS FUNCTION constructs a hexademical value of the color from rgb*/
 function RGBtoHEX(Array) {
   return "" + rgbElementToHex(Array[0]) + rgbElementToHex(Array[1]) + rgbElementToHex(Array[2]);
 }
 
+
+/*THIS FUNCTION parses the string in format 'rgb(x, x, x)' and makes an array [x, x, x], consisting of red, green and blue colors as integers */
 function RGBParser(rgb) {
   const parts = rgb.slice(4, rgb.length - 1);
   const colorsArray = parts.split(', ');
   const colorsNums = [parseInt(colorsArray[0]), parseInt(colorsArray[1]), parseInt(colorsArray[2])]
   return RGBtoHEX(colorsNums);
 }
-
