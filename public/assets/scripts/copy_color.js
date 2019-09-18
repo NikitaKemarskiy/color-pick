@@ -18,6 +18,7 @@ function copyToClip() {
   document.execCommand('copy');                                       //and copy the color from it.
   dummy.remove();                                                     //Here we remove the temporary field.
   console.log(color + " copied in HEX!");                             //info for developers.
+  popup(color);
 }
   
 /*THIS FUNCTION converts a part of rgb(r, g or b) into a hexademical number*/ 
@@ -41,4 +42,17 @@ function RGBParser(rgb) {
   const colorsArray = parts.split(', ');
   const colorsNums = [parseInt(colorsArray[0]), parseInt(colorsArray[1]), parseInt(colorsArray[2])]
   return RGBtoHEX(colorsNums);
+}
+
+
+
+function popup(color) {
+  const popupScreen = document.getElementsByClassName('copy_notif');
+  // const notif = document.createElement('notif');
+  console.log(popupScreen[0]);
+  popupScreen[0].style.opacity = '1';
+  popupScreen[0].style.zIndex = '99999';
+  popupScreen[0].style.backgroundColor = color;
+  
+
 }

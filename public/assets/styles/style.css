@@ -13,22 +13,26 @@ body{
 /*--------BUTTONS---------*/
 
 button{
-  border: 0;
-  background: white;
-  color: #252525;
-  text-transform: uppercase;
-  border-radius: 2px;
-  height: 40px;
+  background: transparent;
+  border: none;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
   margin-left: 10px;
-  vertical-align: middle;
+  vertical-align: center;
+  padding: 0;
   text-align: center;
-  transition: all .1s linear;
-}
-button:hover{
-  border: 2px solid black;
+  transition: background-color .2s linear;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 button:active{
-  background: red;
+  background: #1F1F1F;
 }
 
 
@@ -42,6 +46,7 @@ header{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 3;
 }
 
 .header_title{
@@ -61,12 +66,23 @@ header{
 
 /*---------MAIN-----------*/
 
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+.scrollable{
+  width: 61.8%;
+  height: 85vh;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+}
+
 .copy_notif{
   width: 100%;
   height: 100vh;
   position: fixed;
-  /* bottom: 8vh;
-  left: 15px; */
   background: #202124;
   z-index: -1;
   border-radius: 3px;
@@ -74,6 +90,10 @@ header{
   align-items: center;
   text-align: center;
   opacity: 0;
+  transition: opacity .1s ease-in-out;
+  font-size: 200px;
+  font-family: 'Roboto', sans-serif;
+  /* transition: z-index 10001s ease-in-out; */
 }
 
 
@@ -87,13 +107,10 @@ main{
 
 
 .colors{
-    text-align: center;
-
+  text-align: center;
   display: grid;
-  width: 61.8%;
-  max-width: 61.8%;
+  width: 100%;
   height: 100%;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   overflow-y: none;
   overflow-x: none;
@@ -115,6 +132,8 @@ main{
 
 .color{
   margin: 0;
+  width: 100%;
+  height: 260px;
   padding: 0;
   transition: transform .1s ease;
   color: white;
@@ -152,6 +171,22 @@ main{
   background: #2f7c33;
 }
 
+.color:nth-child(9){
+  background: #2f7c33;
+}
+.color:nth-child(10){
+  background: #2f7c33;
+}
+.color:nth-child(11){
+  background: #2f7c33;
+}
+.color:nth-child(12){
+  background: #2f7c33;
+}
+.color:nth-child(13){
+  background: #2f7c33;
+}
+
 .color:hover{
   transform: scale(1.05);
   box-shadow: 0px 0px 20px 5px #202020;
@@ -175,6 +210,7 @@ footer{
   color: cyan;
   width: 100%;
   align-items: center;
+  z-index: 3;
 }
 
 .github-logo{
