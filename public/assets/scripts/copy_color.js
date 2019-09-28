@@ -32,7 +32,7 @@ function rgbElementToHex(c) {
 
 /*THIS FUNCTION constructs a hexademical value of the color from rgb*/
 function RGBtoHEX(Array) {
-  return "" + rgbElementToHex(Array[0]) + rgbElementToHex(Array[1]) + rgbElementToHex(Array[2]);
+  return "#" + rgbElementToHex(Array[0]) + rgbElementToHex(Array[1]) + rgbElementToHex(Array[2]);
 }
 
 
@@ -48,11 +48,13 @@ function RGBParser(rgb) {
 
 function popup(color) {
   const popupScreen = document.getElementsByClassName('copy_notif');
-  // const notif = document.createElement('notif');
-  console.log(popupScreen[0]);
   popupScreen[0].style.opacity = '1';
   popupScreen[0].style.zIndex = '99999';
   popupScreen[0].style.backgroundColor = color;
-  
-
+  setTimeout(() => {
+    popupScreen[0].style.opacity = '0';
+    setTimeout(() => {
+      popupScreen[0].style.zIndex = '-1';
+    }, 125);
+  }, 250);
 }

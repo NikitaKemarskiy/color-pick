@@ -30,12 +30,49 @@ button{
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: transform .2s linear;
+  animation-iteration-count: infinite;
 }
 button:active{
   background: #1F1F1F;
 }
 
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
+button:hover{
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
 
 /*--------HEADER---------*/
 header{
@@ -60,20 +97,34 @@ header{
 
 .header_buttons{
   display: grid;
-  grid-template-columns: repeat(4, minmax(80px, 1fr));
+  grid-template-columns: repeat(2, minmax(80px, 1fr));
   margin-right: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*---------MAIN-----------*/
 
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
+    width: 1px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 
 .scrollable{
-  width: 61.8%;
+  width: 100%;
   height: 85vh;
   overflow-y: scroll; 
   overflow-x: hidden;
@@ -93,25 +144,40 @@ header{
   transition: opacity .1s ease-in-out;
   font-size: 200px;
   font-family: 'Roboto', sans-serif;
-  /* transition: z-index 10001s ease-in-out; */
+  /* transition: z-index 20s ease-in-out; */
 }
 
+.get_fromImage{
+  margin-right: 20px;
+  margin-top: 20px;
+}
 
 
 main{
   background: #1F1F1F;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
+.zoom{
+  max-width: 100%;
+  align-items: center;
 
-
+}
 
 .colors{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
   text-align: center;
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(90px, 200px));
+  grid-auto-rows: 200px;
   overflow-y: none;
   overflow-x: none;
 }
@@ -132,8 +198,6 @@ main{
 
 .color{
   margin: 0;
-  width: 100%;
-  height: 260px;
   padding: 0;
   transition: transform .1s ease;
   color: white;
@@ -168,23 +232,23 @@ main{
 }
 
 .color:nth-child(8){
-  background: #2f7c33;
+  background: #0f746e;
 }
 
 .color:nth-child(9){
-  background: #2f7c33;
+  background: #550c0c;
 }
 .color:nth-child(10){
-  background: #2f7c33;
+  background: #e2b552;
 }
 .color:nth-child(11){
-  background: #2f7c33;
+  background: #d34c80;
 }
 .color:nth-child(12){
-  background: #2f7c33;
+  background: #073f6d;
 }
 .color:nth-child(13){
-  background: #2f7c33;
+  background: #0fd119;
 }
 
 .color:hover{
