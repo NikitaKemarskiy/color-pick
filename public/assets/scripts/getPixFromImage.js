@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.drawImage(img, 0, 0);
   });
 
-  $('#canvas_picker').click(function (event) {
+  $('.covered_image').click(function (event) {
     // получение координат
     var x = event.pageX - this.offsetLeft;
     var y = event.pageY - this.offsetTop;
@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var G = img_data[1];
     var B = img_data[2]; 
     var rgb = 'rgb(' + R + ', ' + G + ', ' + B + ')';
-    const elem = document.getElementsByClassName('copied_color');
-    elem[0].style.backgroundColor = rgb;
-    // показываем значения
-    $('#rgb input').val(rgb);
+    const our_color = document.getElementsByClassName('color');
+    our_color[0].style.backgroundColor = rgb;
+    our_color[0].firstElementChild.innerHTML = "" + RGBParser(rgb);
   });
 });
