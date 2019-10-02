@@ -1,8 +1,8 @@
 // Modules
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
 const https = require('https');
-const bodyParser = require('koa-bodyparser');
 const { promisify } = require('util');
 
 // Constants
@@ -17,9 +17,11 @@ const SSL = {
 
 // Server init function
 async function init(app) {
+	const httpServer = http.createServer(app.callback()); // Http server
 	const httpsServer = https.createServer(SSL, app.callback()); // Https server
 	try {
-		await promisify(httpsServer.listen)();
+		await promisify(httpServer.listen).call(httpServer, 80);		
+		await promisify(httpsServer.listen).call(httpsServer, 443);		
 		console.log(`=> Server was initialized!`);
 	} catch (err) {
 		console.error(err);

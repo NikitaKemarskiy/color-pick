@@ -1,6 +1,7 @@
 // Modules
 const path = require('path');
 const koaRouter = require('koa-router');
+const bodyParser = require('koa-bodyparser');
 
 // Libs
 const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
@@ -9,11 +10,13 @@ const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
 const router = new koaRouter();
 
 // Routes
-router.get('/', (ctx) => {
-	ctx.body = 'Hello, World!';
+router.get('/', (ctx) => { // Home page
+	ctx.body = ctx.path + ' ' + ctx.url;
 });
 
-router.post('');
+router.post('/colors', (ctx) => {
+	console.dir(ctx.request.body);
+});
 
 // Exports
 module.exports = router;
