@@ -1,0 +1,300 @@
+body{
+  margin: 0;
+  padding: 0; 
+  background: #353535;
+  width: 100%;
+  overflow: hidden;
+}
+
+.site{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 9vh 85vh 5vh;
+  overflow: hidden;
+}
+/*--------BUTTONS---------*/
+
+button{
+  background: transparent;
+  border: none;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  margin-left: 10px;
+  vertical-align: center;
+  padding: 0;
+  text-align: center;
+  transition: background-color .2s linear;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .2s linear;
+  animation-iteration-count: infinite;
+}
+button:active{
+  background: #1F1F1F;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+button:hover{
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+/*--------HEADER---------*/
+header{
+  width: 100%;
+  background: #282828;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+
+.header_title{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.header_buttons{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(80px, 1fr));
+  margin-right: 20px;
+}
+
+
+.header_project-name{
+  -moz-user-select: none; /* Mozilla Firefox */
+  -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+  -o-user-select: none; /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------MAIN-----------*/
+
+::-webkit-scrollbar {
+    width: 1px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+.scrollable{
+  width: 100%;
+  height: 85vh;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+}
+
+.copy_notif{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: #202124;
+  z-index: -1;
+  border-radius: 3px;
+  color: #e7e7e8;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .1s ease-in-out;
+  font-size: 200px;
+  font-family: 'Roboto', sans-serif;
+  /* transition: z-index 20s ease-in-out; */
+}
+
+.get_fromImage{
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+
+main{
+  background: #1F1F1F;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.zoom{
+  max-width: 100%;
+  align-items: center;
+
+}
+
+.colors{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(3, minmax(90px, 200px));
+  grid-auto-rows: 200px;
+  overflow-y: none;
+  overflow-x: none;
+}
+
+.color_text{
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity .2s linear;
+  -moz-user-select: none; /* Mozilla Firefox */
+  -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+  -o-user-select: none; /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  background: linear-gradient(#00000000, #1f1f1f80, #1f1f1f80, #00000000);
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.color{
+    text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: transform .1s linear;
+  color: white;
+  display: inline-block;
+}
+.color:nth-child(1){
+  grid-column: 1/3;
+  transition: background-color .1s ease-in-out;
+}
+
+.color:nth-child(2){
+  background: #000000;
+}
+
+.color:nth-child(3){
+  background: blue;
+}
+
+.color:nth-child(4){
+  background: #253ca5;
+}
+
+.color:nth-child(5){
+  background: #ffff00;
+}
+
+.color:nth-child(6){
+  background: #ff4500;
+}
+
+.color:nth-child(7){
+  background: #b617ae;
+}
+
+.color:nth-child(8){
+  background: #0f746e;
+}
+
+.color:nth-child(9){
+  background: #550c0c;
+}
+.color:nth-child(10){
+  background: #e2b552;
+}
+.color:nth-child(11){
+  background: #d34c80;
+}
+.color:nth-child(12){
+  background: #073f6d;
+}
+.color:nth-child(13){
+  background: #0fd119;
+}
+
+.color:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px 5px #202020;
+
+}
+
+.color:hover .color_text{
+  opacity: 1;
+}
+
+
+
+
+
+
+/*--------FOOTER---------*/
+footer{
+  height: 6vh;
+  background: #282828; 
+  color: cyan;
+  width: 100%;
+  align-items: center;
+  z-index: 3;
+}
+
+.github-logo{
+  height: 4vh;
+}
+
+.github-logo > path {
+  transition: fill .2s linear;
+}
+
+.github-logo:hover path{
+  fill: #bb0404;
+}

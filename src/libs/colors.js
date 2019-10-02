@@ -6,11 +6,6 @@ const jpeg = require('jpeg-js');
 const { promisify } = util;
 const { sqrt, pow, floor, max } = Math;
 
-// Constants
-const RED_FACTOR = 8;
-const GREEN_FACTOR = 8;
-const BLUE_FACTOR = 4;
-
 /*
  * Get colors from JPEG image
 */
@@ -61,12 +56,9 @@ function pickColors(colors, factor) {
         if (color.blue < blue.min) { blue.min = color.blue };
         if (color.blue > blue.max) { blue.max = color.blue };
     });
-    const redDiff = red.max - red.min;
-    const greenDiff = green.max - green.min;
-    const blueDiff = blue.max - blue.min;
-
-    console.log(redDiff, greenDiff, blueDiff);
-
+    const redDiff = red.max = red.min;
+    const greenDiff = green.max = green.min;
+    const blueDiff = blue.max = blue.min;
     switch (max(redDiff, greenDiff, blueDiff)) {
         case redDiff: {
             sortByColor(colors, 'red');
@@ -82,33 +74,6 @@ function pickColors(colors, factor) {
     const arrTwo = pickColors(colors.slice(colors.length / 2), floor(factor / 2));
     return arrOne.concat(arrTwo);
 }
-
-// function pickColors(colors) {
-//     // Three-dimensional array for RGB cube
-//     const cube = (new Array(RED_FACTOR)).fill(new Array(GREEN_FACTOR).fill(new Array(BLUE_FACTOR)));
-//     colors.forEach((color) => {
-//         const redIndex = floor(color.red * RED_FACTOR / 256);
-//         const greenIndex = floor(color.green * GREEN_FACTOR / 256);
-//         const blueIndex = floor(color.blue * BLUE_FACTOR / 256);
-//         if (!cube[redIndex][greenIndex][blueIndex]) { // Create new array for current RGB cube block
-//             cube[redIndex][greenIndex][blueIndex] = [];
-//         }
-//         cube[redIndex][greenIndex][blueIndex].push(color);
-//     });
-//     const picked = [];
-//     for (let redIndex = 0; redIndex < RED_FACTOR; redIndex++) {
-//         for (let greenIndex = 0; greenIndex < GREEN_FACTOR; greenIndex++) {
-//             for (let blueIndex = 0; blueIndex < BLUE_FACTOR; blueIndex++) {
-//                 // There are no colors in current RGB cube block
-//                 if (!cube[redIndex][greenIndex][blueIndex]) { continue; }
-//                 // Average color in current block
-//                 const color = getAverageColor(cube[redIndex][greenIndex][blueIndex]);
-//                 picked.push(color);
-//             }
-//         }    
-//     }
-//     return picked;
-// }
 
 /*
  * Get euclidean distance between two colors

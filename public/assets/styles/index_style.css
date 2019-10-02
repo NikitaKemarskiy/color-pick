@@ -1,0 +1,169 @@
+body{
+  margin: 0;
+  padding: 0; 
+  background: #353535;
+  width: 100%;
+  overflow: hidden;
+}
+
+.site{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 9vh 85vh 5vh;
+  overflow: hidden;
+}
+/*--------BUTTONS---------*/
+
+button{
+  background: transparent;
+  border: none;
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  margin-left: 10px;
+  vertical-align: center;
+  padding: 0;
+  text-align: center;
+  transition: background-color .2s linear;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .2s linear;
+  animation-iteration-count: infinite;
+}
+button:active{
+  background: #1F1F1F;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.menu_button:first-of-type:hover{
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.submenu{
+  width: 800px;
+  border-radius: 24px;
+  background: #1F1F1F;
+  height: 7vh;
+}
+
+
+
+
+/*--------HEADER---------*/
+header{
+  width: 100%;
+  background: #282828;
+  height: 9vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+
+.header_title{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.header_buttons{
+  display: flex;
+  margin-right: 20px;
+}
+
+
+.header_project-name{
+  -moz-user-select: none; /* Mozilla Firefox */
+  -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+  -o-user-select: none; /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+
+
+
+
+
+/*--------MAIN---------*/
+
+main {
+  align-content: center;
+  vertical-align: center;
+  height: 85vh;
+}
+
+form {
+  background: #1F1F1F;
+  width: 80vw;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+
+
+
+
+/*--------FOOTER---------*/
+footer{
+  height: 6vh;
+  background: #282828; 
+  color: cyan;
+  width: 100%;
+  align-items: center;
+  z-index: 3;
+}
+
+.github-logo{
+  height: 4vh;
+}
+
+.github-logo > path {
+  transition: fill .2s linear;
+}
+
+.github-logo:hover path{
+  fill: #bb0404;
+}
