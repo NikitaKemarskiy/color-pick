@@ -1,7 +1,8 @@
 // Modules
 const path = require('path');
-const koaRouter = require('koa-router');
 const bodyParser = require('koa-bodyparser');
+const koaRouter = require('@koa/router');
+const koaMulter = require('@koa/multer');
 
 // Libs
 const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
@@ -9,13 +10,24 @@ const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
 // Router
 const router = new koaRouter();
 
-// Routes
-router.get('/', (ctx) => { // Home page
-	ctx.body = ctx.path + ' ' + ctx.url;
+// Multer
+const upload = koaMulter({
+	storage: koaMulter.memoryStorage(),
+	limits: {
+		fields: 0,
+		files: 1,
+		fileSize: 1024 * 1024 * 5 // 5 MB
+	}
 });
 
-router.post('/colors', (ctx) => {
-	console.dir(ctx.request.body);
+// Routes
+router.get('/', (ctx) => { // Home page
+	ctx.body = 'Home page';
+});
+
+router.post('/colors', upload.single('image'), (ctx) => {
+	console.dir(ctx.file);
+	ctx.body = 'Image was send'
 });
 
 // Exports

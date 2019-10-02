@@ -10,13 +10,12 @@ async function init(app) {
 	// Middlewares
 	app.use(bodyParser());
 	app.use((ctx, next) => {
-		if (ctx.protocol === 'http') {
+		if (ctx.secure) {
+			next();
+		} else {
 			const httpsPath = `https://${ctx.host}${ctx.url}`;
 			ctx.redirect(httpsPath);
-			return;
 		}
-		console.log('=> LOG');
-		next();
 	});
 	
 	// Routes
