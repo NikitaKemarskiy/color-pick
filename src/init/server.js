@@ -5,15 +5,17 @@ const http = require('http');
 const https = require('https');
 const { promisify } = require('util');
 
-// Constants
-const PRIVATE_KEY_PATH = path.join(__dirname, '..', '..', 'ssl', 'key.pem');
-const CERTIFICATE_PATH = path.join(__dirname, '..', '..', 'ssl', 'cert.pem');
+// Config
+const config = require(path.join(__dirname, '..', '..', 'config', 'config'));
 
 // SSL
 const SSL = {
-	key: fs.readFileSync(PRIVATE_KEY_PATH),
-	cert: fs.readFileSync(CERTIFICATE_PATH)
+	key: fs.readFileSync(config.ssl.keyPath),
+	cert: fs.readFileSync(config.ssl.certPath),
+	ca: fs.readFileSync(config.ssl.chainPath)
 };
+
+console.dir(SSL);
 
 // Server init function
 async function init(app) {

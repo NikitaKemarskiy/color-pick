@@ -1,0 +1,7 @@
+{
+  "ssl": {
+    "keyPath": "<PRIVATE KEY PATH>",
+    "certPath": "<CERTIFICATE PATH>",
+    "chainPath": "<CHAIN PATH>"
+  }
+}
