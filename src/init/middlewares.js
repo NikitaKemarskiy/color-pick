@@ -1,15 +1,19 @@
 // Modules
 const path = require('path');
 const bodyParser = require('koa-bodyparser');
+const koaStatic = require('koa-static');
 
 // Router
 const router = require(path.join(__dirname, '..', 'routing', 'routing'));
+
+// Constants
+const STATIC_PATH = path.join(__dirname, '..', '..', 'public');
 
 // Middlewares init function
 async function init(app) {
 	// Middlewares
 	app.use(bodyParser()); // Body parser
-
+	app.use(koaStatic(STATIC_PATH));
 	app.use(async (ctx, next) => {
 		// https redirect from http
 		if (ctx.secure) {
