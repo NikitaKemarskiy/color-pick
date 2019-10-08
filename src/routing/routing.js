@@ -2,32 +2,33 @@
 const path = require('path');
 const bodyParser = require('koa-bodyparser');
 const koaRouter = require('@koa/router');
-const koaMulter = require('@koa/multer');
 
 // Libs
 const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
 
+// Multer
+const upload = require(path.join(__dirname, '..', 'init', 'multer'));
+
 // Router
 const router = new koaRouter();
 
-// Multer
-const upload = koaMulter({
-	storage: koaMulter.memoryStorage(),
-	limits: {
-		fields: 0,
-		files: 1,
-		fileSize: 1024 * 1024 * 5 // 5 MB
-	}
-});
-
 // Routes
-router.get('/', (ctx) => { // Home page
+router.get('/', (ctx) => {
+	// Home page
 	ctx.body = 'Home page';
 });
 
-router.post('/colors', upload.single('image'), (ctx) => {
-	console.dir(ctx.file);
-	ctx.body = 'Image was send'
+router.post('/colors', async (ctx) => {
+	try {
+		const file = await upload(ctx);
+		ctx.body = 'Image was send';
+	} catch (err) {
+        /*
+         * File didn't pass multer filter
+         * Definitely it's too large or
+         * has wrong extension (not JPEG / JPG)
+        */
+	}
 });
 
 // Exports

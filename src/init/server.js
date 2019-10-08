@@ -15,21 +15,19 @@ const SSL = {
 	ca: fs.readFileSync(config.ssl.chainPath)
 };
 
-console.dir(SSL);
-
 // Server init function
 async function init(app) {
 	const httpServer = http.createServer(app.callback()); // Http server
 	const httpsServer = https.createServer(SSL, app.callback()); // Https server
 	try {
-		await promisify(httpServer.listen).call(httpServer, 80);		
-		await promisify(httpsServer.listen).call(httpsServer, 443);		
+		await promisify(httpServer.listen).call(httpServer, 80);
+		await promisify(httpsServer.listen).call(httpsServer, 443);
 		console.log(`=> Server was initialized!`);
 	} catch (err) {
 		console.error(err);
 		process.exit(1);
 	}
-};
+}
 
 // Exports
 module.exports = {
