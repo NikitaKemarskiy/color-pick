@@ -22,9 +22,14 @@ router.get('/', async (ctx) => {
 });
 
 router.post('/colors', async (ctx) => {
+	const { getColors, pickColors } = colors;
 	try {
-		const file = await upload(ctx);
-		ctx.body = 'Image was send';
+		const data = await upload(ctx);
+		const colors = getColors(data.file.buffer);
+		const picked = pickColors(colors, 32);
+
+		ctx.type = 'application/json';
+		ctx.body = picked;
 	} catch (err) {
 		/*
 		 * File didn't pass multer filter

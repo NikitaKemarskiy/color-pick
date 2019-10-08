@@ -9,12 +9,12 @@ const { sqrt, pow, floor, max } = Math;
 /*
  * Get colors from JPEG image
  */
-async function getColors(imgPath) {
-	const imgRaw = await promisify(fs.readFile)(imgPath); // Get raw buffer
+function getColors(imgRaw) {
 	const imgData = jpeg.decode(imgRaw); // Decode it into JPEG data buffer
 	const bytes = imgData.data; // Get bytes
 	const colors = [];
 	const unique = new Set();
+
 	for (let i = 0; i < bytes.length; i += 4) {
 		// Count int number of RGB
 		const number = bytes[i] * 255 * 255 + bytes[i + 1] * 255 + bytes[i + 2];
