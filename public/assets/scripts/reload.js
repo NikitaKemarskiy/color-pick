@@ -38,6 +38,8 @@ function upload() {
       img.src = URL.createObjectURL(uploaded_img);
       document.getElementsByClassName('covered_image')[0].setAttribute('src', img.src);
       getPixes();
+      fill_data(our_colors_data);
+      setColorInBlock();
       blowing_bulb();
     }, 2000);
    
@@ -45,9 +47,21 @@ function upload() {
 
 
 
-function parse_data(data) {
+function parse_data(element) {
+  let oneClr = "rgb(" + element.red + ", " + element.green + "," + element.blue + ")";
+  return oneClr;
+}
 
+
+function fill_data(data) {
+  let Father = document.getElementsByClassName('colors')[0];
   data.forEach(element => {
-    console.log(element.red);
+    const Child = document.createElement('div');
+    Child.className = 'color';
+    const ChildText = document.createElement('div');
+    ChildText.className = 'color_text';
+    Child.appendChild(ChildText);
+    Child.style.backgroundColor = parse_data(element);
+    Father.appendChild(Child);
   });
 }
