@@ -58,3 +58,8 @@ function popup(color) {
     }, 125);
   }, 250);
 }
+
+
+function getgetget(){
+  $('#mam').load('ajax/test.html <pre>');
+}

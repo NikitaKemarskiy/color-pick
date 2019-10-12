@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function getPixes() {
 
   const canvas = document.getElementById('canvas_picker');
   const img = new Image();
@@ -33,4 +33,4 @@ document.addEventListener("DOMContentLoaded", function () {
     our_color[0].style.backgroundColor = rgb;
     our_color[0].firstElementChild.innerHTML = "" + RGBParser(rgb);
   });
-});
+};

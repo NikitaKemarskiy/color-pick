@@ -12,6 +12,24 @@ body{
   grid-template-rows: 9vh 85vh 5vh;
   overflow: hidden;
 }
+
+
+/*---------FORM------------*/
+
+.main_form{
+  background: #1F1F1F;
+  width: 30vw;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 20px;user-drag: none; 
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+}
+
+
 /*--------BUTTONS---------*/
 
 button{
@@ -38,6 +56,15 @@ button{
 button:active{
   background: #1F1F1F;
 }
+
+
+/* button:hover{
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+} */
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
@@ -132,14 +159,6 @@ main {
   align-content: center;
   vertical-align: center;
   height: 85vh;
-}
-
-form {
-  background: #1F1F1F;
-  width: 80vw;
-  height: 500px;
-  margin: 0 auto;
-  border-radius: 20px;
 }
 
 

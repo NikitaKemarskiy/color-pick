@@ -12,6 +12,27 @@ body{
   grid-template-rows: 9vh 85vh 5vh;
   overflow: hidden;
 }
+
+.covered_image{
+  user-drag: none; 
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+}
+
+/*---------FORM------------*/
+
+.main_form{
+  background: rgb(190, 23, 23);
+  width: 30vw;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+
 /*--------BUTTONS---------*/
 
 button{
@@ -68,19 +89,14 @@ button:active{
   }
 }
 
-button:hover{
-  -webkit-animation: rotating 1s linear infinite;
-  -moz-animation: rotating 1s linear infinite;
-  -ms-animation: rotating 1s linear infinite;
-  -o-animation: rotating 1s linear infinite;
-  animation: rotating 1s linear infinite;
-}
+
 
 /*--------HEADER---------*/
 header{
   width: 100%;
   background: #282828;
   color: white;
+  height: 9vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -98,8 +114,7 @@ header{
 }
 
 .header_buttons{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(80px, 1fr));
+  display: flex;
   margin-right: 20px;
 }
 
@@ -214,50 +229,6 @@ main{
 .color:nth-child(1){
   grid-column: 1/3;
   transition: background-color .1s ease-in-out;
-}
-
-.color:nth-child(2){
-  background: #000000;
-}
-
-.color:nth-child(3){
-  background: blue;
-}
-
-.color:nth-child(4){
-  background: #253ca5;
-}
-
-.color:nth-child(5){
-  background: #ffff00;
-}
-
-.color:nth-child(6){
-  background: #ff4500;
-}
-
-.color:nth-child(7){
-  background: #b617ae;
-}
-
-.color:nth-child(8){
-  background: #0f746e;
-}
-
-.color:nth-child(9){
-  background: #550c0c;
-}
-.color:nth-child(10){
-  background: #e2b552;
-}
-.color:nth-child(11){
-  background: #d34c80;
-}
-.color:nth-child(12){
-  background: #073f6d;
-}
-.color:nth-child(13){
-  background: #0fd119;
 }
 
 .color:hover{
