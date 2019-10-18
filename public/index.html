@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles/worksheet_style.css">
   <link rel="stylesheet" href="assets/styles/image.css">
+  <link rel="stylesheet" href="assets/styles/form_style.css">
   <script type="text/javascript" src="assets/scripts/copy_color.js"></script>
   <script type="text/javascript" src="assets/scripts/blowup.js"></script>
   <script type="text/javascript" src="assets/scripts/getPixFromImage.js"></script>
@@ -20,7 +21,7 @@
     <header>
       <div class="header_title">
         <img class="header_logo" src="" alt="">
-        <h1 class="header_project-name">CoPick</h1>
+        <h1 class="header_project-name"> <a href="/">CoPick</a></h1>
       </div>
       <div class="header_buttons">
         <button>
@@ -44,8 +45,18 @@
     </header>
     <main style="display: flex; justify-content: center; align-items: center;">
       <div class="main_form">
-        <input type="file" accept="image/jpeg" name="image" id="file">
-        <button id="upupup" onclick="upload()">Okay</button>        
+        <input type="file" accept="image/jpeg" name="image" id="file" onchange="upload()">
+        <button onclick="click_button()">Upload the image</button>        
+      </div>
+      <!-- <div id="drop-area">
+        <form class="my-form">
+          <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+          <input type="file" id="fileElem" accept="image/jpeg" onchange="handleFiles(this.files)">
+          <label class="button" for="fileElem">Select some files</label>
+        </form>
+        <progress id="progress-bar" max=100 value=0></progress>
+        <div id="gallery" />
+      </div> -->
       </div>
     </main>
     <footer>
@@ -59,6 +70,7 @@
     </footer>
   </div>
   <script src="assets/scripts/reload.js"></script>
+  <!-- <script src="assets/scripts/drop.js"></script> -->
 </body>
 
 </html>

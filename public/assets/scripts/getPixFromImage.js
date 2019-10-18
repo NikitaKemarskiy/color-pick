@@ -8,8 +8,6 @@ function getPixes() {
     // get the scale
     const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
     // get the top left position of the image
-    const x = (canvas.width / 2) - (img.width / 2) * scale;
-    const y = (canvas.height / 2) - (img.height / 2) * scale;
     canvas.width = img.width * scale;
     canvas.getContext('2d').drawImage(img, 0, 0, img.width * scale, img.height * scale);
     document.getElementsByClassName('wrapper')[0].width = img.width * scale;
@@ -33,4 +31,35 @@ function getPixes() {
     our_color[0].style.backgroundColor = rgb;
     our_color[0].firstElementChild.innerHTML = "" + RGBParser(rgb);
   });
+  $('.covered_image').contextmenu(function(e) {
+    // получение координат
+    const x = event.pageX - this.offsetLeft;
+    const y = event.pageY - this.offsetTop;
+    // получение цвета пикселя
+    const img_data = canvas.getContext('2d').getImageData(x, y, 1, 1).data;
+    const R = img_data[0];
+    const G = img_data[1];
+    const B = img_data[2];
+    const rgb = 'rgb(' + R + ', ' + G + ', ' + B + ')';
+    const our_colors = document.getElementsByClassName('color');
+    const allclrs = document.getElementById('colors');
+
+    const Child = document.createElement('div');
+    Child.className = 'color';
+    const ChildText = document.createElement('div');
+    ChildText.className = 'color_text';
+    ChildText.innerHTML = RGBParser(Child.style.backgroundColor);
+    Child.appendChild(ChildText);
+    allclrs.appendChild(Child);
+    for (let index = our_colors.length - 1; index > 0 ; index--) {
+      our_colors[index].style.backgroundColor = our_colors[index - 1].style.backgroundColor;
+    }
+    our_colors[1].style.backgroundColor = rgb;
+    our_colors[1].firstElementChild.innerHTML = "" + RGBParser(rgb);
+    setColorInBlock();
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  )
 };

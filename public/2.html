@@ -2,7 +2,7 @@
     <header>
       <div class="header_title">
         <img class="header_logo" src="" alt="">
-        <h1 class="header_project-name">CoPick</h1>
+        <h1 class="header_project-name"> <a href="/">CoPick</a></h1>
       </div>
       <div class="header_buttons">
         <button>
@@ -29,7 +29,7 @@
     </div>
     <main>
       <div class="scrollable">
-        <div class="colors" onclick="copyToClip()">
+        <div id="colors" onclick="copyToClip()">
           <div class="color" style="background-color: rgba(255, 255, 255);">
             <div class="color_text"></div>
           </div>
@@ -38,11 +38,9 @@
       <div class="get_fromImage">
         <div class="wrapper">
           <img src="" alt="" class="covered_image">
-          <canvas width="640" height="500" id="canvas_picker"></canvas>
+          <canvas width="640" height="500" id="canvas_picker" onmousedown="mouseDown(event)"></canvas>
           <script src="assets/scripts/setColorInBlock.js"></script>
           <script async type="text/javascript" src="assets/scripts/index.js"></script>
-          <div id="mam"></div>
-          <button onclick="getgetget()"></button>
         </div>
       </div>
     </main>

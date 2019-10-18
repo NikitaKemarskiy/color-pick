@@ -1,3 +1,9 @@
+function click_button(){
+  const btn = document.getElementById('file');
+  btn.click();
+}
+
+
 function upload() {
   let form_data = new FormData();
   let uploaded_img = document.getElementById('file').files[0];
@@ -30,7 +36,6 @@ function upload() {
   console.log(2);
     // end
     
-
     setTimeout(() => {
       console.log(3);
       // var reader = new FileReader();
@@ -54,7 +59,7 @@ function parse_data(element) {
 
 
 function fill_data(data) {
-  let Father = document.getElementsByClassName('colors')[0];
+  let Father = document.getElementById('colors');
   data.forEach(element => {
     const Child = document.createElement('div');
     Child.className = 'color';
