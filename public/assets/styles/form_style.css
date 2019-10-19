@@ -15,9 +15,11 @@
   padding: 20px;
   text-align: center;
   color: white;
+  transition: background-color .4s linear;
 }
 #drop-area.highlight {
-  background-color: purple;
+background-color: #2ecc71;
+  animation: hue 2s linear infinite;
 }
 p {
   margin-top: 0;
@@ -40,11 +42,11 @@ p {
   background: black;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color .4s linear;
 }
 .button:hover {
   background-color: #2ecc71;
   animation: hue 2s linear infinite backwards;
-  transition: animation .2s linear;
 
 }
 #fileElem {

@@ -37,8 +37,13 @@ function unhighlight(e) {
 }
 
 function handleDrop(e) {
-  document.getElementById('fileElem').files = e.dataTransfer.files;
-  document.getElementById('fileElem').onchange();
+  if (e.dataTransfer.files[0].type !== "image/jpeg") {
+    alert('Please, provide a JPEG or JPG image!');
+  }
+  else{
+    document.getElementById('fileElem').files = e.dataTransfer.files;
+    document.getElementById('fileElem').onchange();
+  }
 }
 
 
