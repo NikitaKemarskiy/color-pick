@@ -59,7 +59,6 @@ function getPixes() {
     setColorInBlock();
     e.preventDefault();
     e.stopPropagation();
-  }
+  })
 
-  )
 };

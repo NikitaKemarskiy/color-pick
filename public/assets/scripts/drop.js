@@ -1,5 +1,6 @@
 // ************************ Drag and drop ***************** //
-let dropArea = document.getElementById("drop-area")
+document.addEventListener('DOMContentLoaded', ()=> {
+  let dropArea = document.getElementById("drop-area");
 
   // Prevent default drag behaviors
   ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -16,8 +17,9 @@ let dropArea = document.getElementById("drop-area")
     dropArea.addEventListener(eventName, unhighlight, false)
   })
 
-// Handle dropped files
-dropArea.addEventListener('drop', handleDrop, false)
+  // Handle dropped file
+  dropArea.addEventListener('drop', handleDrop, false)
+});
 
 function preventDefaults(e) {
   e.preventDefault()
@@ -25,51 +27,83 @@ function preventDefaults(e) {
 }
 
 function highlight(e) {
-  dropArea.classList.add('highlight')
+  let dropArea = document.getElementById("drop-area");
+  dropArea.classList.add('highlight');
 }
 
 function unhighlight(e) {
-  dropArea.classList.remove('active')
+  let dropArea = document.getElementById("drop-area");
+  dropArea.classList.remove('highlight');
 }
 
 function handleDrop(e) {
-  var dt = e.dataTransfer
-  var files = dt.files
-
-  handleFiles(files)
+  document.getElementById('fileElem').files = e.dataTransfer.files;
+  document.getElementById('fileElem').onchange();
 }
 
-let uploadProgress = []
-let progressBar = document.getElementById('progress-bar')
 
-function initializeProgress(numFiles) {
-  progressBar.value = 0
-  uploadProgress = []
+function upload() {
+  let form_data = new FormData();
+  let uploaded_img = document.getElementById('fileElem').files[0];
+  let our_colors_data;
+  form_data.set('image', uploaded_img);
+  let req = new Request('/colors', {
+    method: 'POST',
+    enctype: "multipart/form-data",
+    body: form_data,
+  });
+  fetch(req)
+    .then((response) => {
+      console.log('OKAY!');
+      response.json().then((data) => {
+        our_colors_data = data;
+        console.log(1);
+      });
+    })
+    .catch((err) => {
+      console.log('Error' + err.message);
+    });
 
-  for (let i = numFiles; i > 0; i--) {
-    uploadProgress.push(0)
-  }
+  // don't cache ajax or content won't be fresh
+  $.ajaxSetup({
+    cache: false
+  });
+  // load() functions
+  $('body').load("2.html");
+
+  console.log(2);
+  // end
+
+  setTimeout(() => {
+    console.log(3);
+    const img = new Image();
+    img.src = URL.createObjectURL(uploaded_img);
+    document.getElementsByClassName('covered_image')[0].setAttribute('src', img.src);
+    getPixes();
+    fill_data(our_colors_data);
+    setColorInBlock();
+    blowing_bulb();
+  }, 2000);
+
+};
+
+
+
+function parse_data(element) {
+  let oneClr = "rgb(" + element.red + ", " + element.green + "," + element.blue + ")";
+  return oneClr;
 }
 
-function updateProgress(fileNumber, percent) {
-  uploadProgress[fileNumber] = percent
-  let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
-  console.debug('update', fileNumber, percent, total)
-  progressBar.value = total
-}
 
-function handleFiles(files) {
-  files = [...files]
-  initializeProgress(files.length)
-  files.forEach(previewFile)
-}
-
-function previewFile(file) {
-  let reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onloadend = function () {
-    let img = document.createElement('img')
-    img.src = reader.result
-    document.getElementById('gallery').appendChild(img)
-  }
+function fill_data(data) {
+  let Father = document.getElementById('colors');
+  data.forEach(element => {
+    const Child = document.createElement('div');
+    Child.className = 'color';
+    const ChildText = document.createElement('div');
+    ChildText.className = 'color_text';
+    Child.appendChild(ChildText);
+    Child.style.backgroundColor = parse_data(element);
+    Father.appendChild(Child);
+  });
 }
