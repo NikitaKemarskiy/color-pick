@@ -38,7 +38,7 @@ body{
 
 /*--------BUTTONS---------*/
 
-button{
+.menu_button{
   background: transparent;
   border: none;
   height: 48px;
@@ -50,18 +50,19 @@ button{
   vertical-align: center;
   padding: 0;
   text-align: center;
-  transition: background-color .2s linear;
+  transition: background-color .1s linear;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform .2s linear;
   animation-iteration-count: infinite;
 }
-button:active{
-  background: #1F1F1F;
+.menu_button:active{
+  background-color: #1F1F1F;
 }
+
+
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
@@ -93,6 +94,14 @@ button:active{
 }
 
 
+.settings_button:hover{
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
 
 /*--------HEADER---------*/
 header{
@@ -119,17 +128,23 @@ header{
 .header_buttons{
   display: flex;
   margin-right: 20px;
+  align-items: center;
 }
 
 
 .header_project-name a{
   text-decoration: none;
   color: white;
+  transition: color .2s linear;
 }
 
 
+.header_project-name a:hover{
+  text-decoration: none;
+  color: #2ecc71;
+  animation: hue 2s linear infinite backwards;
 
-
+}
 
 
 

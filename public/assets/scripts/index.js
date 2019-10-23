@@ -5,6 +5,6 @@ function blowing_bulb( true_scale = 1 ) {
     "width": 300,
     "height": 300,
     "border": "0px solid",
-    "scale": true_scale
+    "scale": 1
   })
 };

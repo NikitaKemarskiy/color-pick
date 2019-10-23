@@ -15,11 +15,12 @@
   padding: 20px;
   text-align: center;
   color: white;
-  transition: background-color .4s linear;
+  transition: background-color .5s ease-out, box-shadow .25s ease-in, color .3s linear;
 }
 #drop-area.highlight {
-background-color: #2ecc71;
-  animation: hue 2s linear infinite;
+  background-color: #70fdab;
+  box-shadow: 0px 0px 20px 1px #70fdab;
+  animation: hue 2s linear infinite backwards;
 }
 p {
   margin-top: 0;
@@ -42,10 +43,13 @@ p {
   background: black;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color .4s linear;
+  transition: background-color .4s ease-out, box-shadow .1s ease-in, color .4s ease-out;
+
 }
 .button:hover {
-  background-color: #2ecc71;
+  background-color: #70fdab;
+  color: black;
+  box-shadow: 0px 0px 20px 1px #70fdab;
   animation: hue 2s linear infinite backwards;
 
 }
