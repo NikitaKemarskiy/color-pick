@@ -1,0 +1,64 @@
+
+.note {
+  width: 500px;
+  margin: 50px auto;
+  font-size: 1.1em;
+  color: #333;
+  text-align: justify;
+}
+#drop-area {
+  /* border: 2px dashed #ccc; */
+  border-radius: 20px;
+  width: 480px;
+  margin: 50px auto;
+  background: #282828;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  transition: background-color .5s ease-out, box-shadow .25s ease-in, color .3s linear;
+}
+#drop-area.highlight {
+  background-color: #70fdab;
+  box-shadow: 0px 0px 20px 1px #70fdab;
+  animation: hue 2s linear infinite backwards;
+}
+p {
+  margin-top: 0;
+}
+.my-form {
+  margin-bottom: 10px;
+}
+#gallery {
+  margin-top: 10px;
+}
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: black;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color .4s ease-out, box-shadow .1s ease-in, color .4s ease-out;
+
+}
+.button:hover {
+  background-color: #70fdab;
+  color: black;
+  box-shadow: 0px 0px 20px 1px #70fdab;
+  animation: hue 2s linear infinite backwards;
+
+}
+#fileElem {
+  display: none;
+}
+
+@keyframes hue {
+  to {
+    filter: hue-rotate(1turn);
+  }
+}

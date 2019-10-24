@@ -9,7 +9,7 @@ function copyToClip() {
   else if (elementMouseIsOver.className == 'color_text') {            //Here we check if the click was on the .color_text element
     style = window.getComputedStyle(elementMouseIsOver.parentNode);   //and save all the styles from his parents element
   }                                                                   //because its parent is always .color.
-  else if (elementMouseIsOver.className == 'colors') {                //All other cases.
+  else if (elementMouseIsOver.id == 'colors') {                //All other cases.
     return;
   } 
   const color = style.getPropertyValue('background-color');           //Here we get the value of background-color.
