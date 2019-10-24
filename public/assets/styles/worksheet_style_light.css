@@ -1,10 +1,11 @@
 *{
   transition: background-color .5s ease-out;
 }
+
 body{
   margin: 0;
   padding: 0; 
-  background: #353535;
+  background: #dddddd;
   width: 100%;
   overflow: hidden;
 }
@@ -31,7 +32,7 @@ body{
 /*---------FORM------------*/
 
 .main_form{
-  background: #282828;
+  background: #dddddd;
   width: 30vw;
   height: 100px;
   margin: 0 auto;
@@ -62,7 +63,7 @@ body{
   animation-iteration-count: infinite;
 }
 .menu_button:active{
-  background-color: #1F1F1F;
+  background-color: #dddddd;
 }
 
 
@@ -109,14 +110,15 @@ body{
 /*--------HEADER---------*/
 header{
   width: 100%;
-  background: #282828;
-  color: white;
+  background: #fff;
+  color: black;
   height: 9vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   z-index: 3;
+  box-shadow: 0px 0px 20px 0px #797979;
 }
 
 .header_title{
@@ -137,7 +139,7 @@ header{
 
 .header_project-name a{
   text-decoration: none;
-  color: white;
+  color: black;
   transition: color .2s linear;
 }
 
@@ -150,9 +152,13 @@ header{
 }
 
 
+.settings_button path, circle{
+  fill: #5F6368;
+}
 
-
-
+.help_button path{
+  fill: #5F6368;
+}
 
 
 
@@ -193,7 +199,7 @@ header{
 
 
 main{
-  background: #1F1F1F;
+  background: #dddddd;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -268,11 +274,13 @@ main{
 /*--------FOOTER---------*/
 footer{
   height: 6vh;
-  background: #282828; 
-  color: cyan;
+  background: #fff; 
+  color: black;
   width: 100%;
   align-items: center;
   z-index: 3;
+    box-shadow: 0px 0px 20px 0px #797979;
+
 }
 
 .github-logo{
@@ -280,6 +288,7 @@ footer{
 }
 
 .github-logo > path {
+  fill: #606060;
   transition: fill .2s linear;
 }
 

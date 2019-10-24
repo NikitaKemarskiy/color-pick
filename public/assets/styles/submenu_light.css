@@ -3,7 +3,7 @@
   width: 220px;
   height: 48px;
   border-radius: 24px;
-  background: #1F1F1F;
+  background: #aaaaaa;
   align-items: center;
 }
 
@@ -50,7 +50,7 @@ input[type="checkbox"]:checked ~ .check:before{
   content: '';
   top: 3px;
   right: 4px;
-  background: #1f1f1f;
+  background: #aaaaaa;
   width: 26px;
   height: 26px;
   border-radius: 50%;

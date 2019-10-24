@@ -1,16 +1,21 @@
 function checker(){
   let isLight = document.getElementById('theme');
-  isLight.checked ? isLight.checked = false : isLight.checked = true;  
   isLight.checked ? setLight(isLight) : setDark(isLight);  
   console.log(isLight);
 }
 
-function setDark(isLight) {
-  isLight.checked = false;
-  console.log('turn to dark');
-}
 
 function setLight(isLight) {
   isLight.checked = true;
-  console.log('turn to light');
+  document.getElementById('worksheet').setAttribute('href', 'assets/styles/worksheet_style_light.css');
+  document.getElementById('form').setAttribute('href', 'assets/styles/form_style_light.css');
+  document.getElementById('submenu').setAttribute('href', 'assets/styles/submenu_light.css');
+
+}
+
+function setDark(isLight) {
+  isLight.checked = false;
+  document.getElementById('worksheet').setAttribute('href', 'assets/styles/worksheet_style.css');
+  document.getElementById('form').setAttribute('href', 'assets/styles/form_style.css');
+  document.getElementById('submenu').setAttribute('href', 'assets/styles/submenu.css');
 }

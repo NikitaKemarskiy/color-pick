@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles/worksheet_style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic,cyrillic-ext">
+  <link id="worksheet" rel="stylesheet" href="assets/styles/worksheet_style.css">
   <link rel="stylesheet" href="assets/styles/image.css">
-  <link rel="stylesheet" href="assets/styles/form_style.css">
-  <link rel="stylesheet" href="assets/styles/submenu.css">
+  <link id="form" rel="stylesheet" href="assets/styles/form_style.css">
+  <link id="submenu" rel="stylesheet" href="assets/styles/submenu.css">
   <script type="text/javascript" src="assets/scripts/copy_color.js"></script>
   <script type="text/javascript" src="assets/scripts/blowup.js"></script>
   <script type="text/javascript" src="assets/scripts/getPixFromImage.js"></script>
@@ -29,7 +29,7 @@
       <div class="header_buttons">
         <div class="menu_from_button">
           <label for="theme">
-            <input type="checkbox" name="theme" id="theme">
+            <input type="checkbox" name="theme" id="theme" onchange="checker()">
             <span class="check"></span>
           </label>
         </div>
@@ -43,8 +43,6 @@
         </button>
         <button class="menu_button help_button">
           <svg width="26" height="26" viewBox="0 0 24 24" class="NSy2Hd RTiFqe null">
-            <path fill="none" d="M0 0h24v24H0V0z">
-            </path>
             <path fill="#ffffff"
               d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z">
             </path>
