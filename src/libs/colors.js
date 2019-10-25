@@ -1,9 +1,6 @@
 // Modules
-const fs = require('fs');
-const util = require('util');
 const jpeg = require('jpeg-js');
 
-const { promisify } = util;
 const { sqrt, pow, floor, max } = Math;
 
 /*
@@ -81,12 +78,15 @@ function pickColors(colors, factor) {
 	switch (max(redDiff, greenDiff, blueDiff)) {
 		case redDiff: {
 			sortByColor(colors, 'red');
+			break;
 		}
 		case greenDiff: {
 			sortByColor(colors, 'green');
+			break;
 		}
 		case blueDiff: {
 			sortByColor(colors, 'blue');
+			break;
 		}
 	}
 	const arrOne = pickColors(
@@ -122,16 +122,19 @@ function sortByColor(colors, color) {
 			colors.sort((colorOne, colorTwo) => {
 				return colorOne.red - colorTwo.red;
 			});
+			break;
 		}
 		case 'green': {
 			colors.sort((colorOne, colorTwo) => {
 				return colorOne.green - colorTwo.green;
 			});
+			break;
 		}
 		case 'blue': {
 			colors.sort((colorOne, colorTwo) => {
 				return colorOne.blue - colorTwo.blue;
 			});
+			break;
 		}
 	}
 }

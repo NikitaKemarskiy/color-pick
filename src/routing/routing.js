@@ -1,6 +1,5 @@
 // Modules
 const path = require('path');
-const bodyParser = require('koa-bodyparser');
 const sendFile = require('koa-sendfile');
 const koaRouter = require('@koa/router');
 

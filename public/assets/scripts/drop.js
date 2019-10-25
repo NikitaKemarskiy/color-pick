@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
   let dropArea = document.getElementById("drop-area");
 
   // Prevent default drag behaviors
-  ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, preventDefaults, false)
     document.body.addEventListener(eventName, preventDefaults, false)
-  })
+  });
 
   // Highlight drop area when item is dragged over it
-  ;['dragenter', 'dragover'].forEach(eventName => {
+  ['dragenter', 'dragover'].forEach(eventName => {
     dropArea.addEventListener(eventName, highlight, false)
-  })
+  });
 
-  ;['dragleave', 'drop'].forEach(eventName => {
+  ['dragleave', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, unhighlight, false)
-  })
+  });
 
   // Handle dropped file
-  dropArea.addEventListener('drop', handleDrop, false)
+  dropArea.addEventListener('drop', handleDrop, false);
 });
 
 function preventDefaults(e) {
@@ -50,46 +50,37 @@ function handleDrop(e) {
 function upload() {
   let form_data = new FormData();
   let uploaded_img = document.getElementById('fileElem').files[0];
-  let our_colors_data;
   form_data.set('image', uploaded_img);
   let req = new Request('/colors', {
     method: 'POST',
     enctype: "multipart/form-data",
     body: form_data,
   });
-  fetch(req)
-    .then((response) => {
-      console.log('OKAY!');
-      response.json().then((data) => {
-        our_colors_data = data;
-        console.log(1);
-      });
-    })
-    .catch((err) => {
-      console.log('Error' + err.message);
-    });
-
   // don't cache ajax or content won't be fresh
   $.ajaxSetup({
     cache: false
   });
   // load() functions
-  $('body').load("2.html");
-
-  console.log(2);
-  // end
-
-  setTimeout(() => {
-    console.log(3);
+  $('body').load("2.html", (data) => {
     const img = new Image();
     img.src = URL.createObjectURL(uploaded_img);
     document.getElementsByClassName('covered_image')[0].setAttribute('src', img.src);
     getPixes();
-    fill_data(our_colors_data);
     setColorInBlock();
     blowing_bulb();
-  }, 2000);
-
+  
+    fetch(req)
+      .then((response) => {
+        console.log('OKAY!');
+        response.json().then((data) => {
+          fill_data(data);
+          console.log(1);
+        });
+      })
+      .catch((err) => {
+        console.log('Error' + err.message);
+      });
+  });
 };
 
 
