@@ -72,9 +72,9 @@ function pickColors(colors, factor) {
 			blue.max = color.blue;
 		}
 	});
-	const redDiff = (red.max = red.min);
-	const greenDiff = (green.max = green.min);
-	const blueDiff = (blue.max = blue.min);
+	const redDiff = (red.max - red.min);
+	const greenDiff = (green.max - green.min);
+	const blueDiff = (blue.max - blue.min);
 	switch (max(redDiff, greenDiff, blueDiff)) {
 		case redDiff: {
 			sortByColor(colors, 'red');
