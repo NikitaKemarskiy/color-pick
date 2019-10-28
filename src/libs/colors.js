@@ -107,8 +107,8 @@ function getDifference(colorOne, colorTwo) {
 	// Count euclidean distance
 	const difference = sqrt(
 		pow(colorOne.red - colorTwo.red, 2) +
-			pow(colorOne.green - colorTwo.green, 2) +
-			pow(colorOne.blue - colorTwo.blue, 2)
+		pow(colorOne.green - colorTwo.green, 2) +
+		pow(colorOne.blue - colorTwo.blue, 2)
 	);
 	return floor(difference);
 }
