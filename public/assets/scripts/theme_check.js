@@ -1,7 +1,6 @@
 function checker(){
   let isLight = document.getElementById('theme');
   isLight.checked ? setLight(isLight) : setDark(isLight);  
-  console.log(isLight);
 }
 
 
