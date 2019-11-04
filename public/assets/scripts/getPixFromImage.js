@@ -4,6 +4,7 @@ function getPixes() {
   const img = new Image();
   img.src = document.getElementsByClassName('covered_image')[0].getAttribute('src');
   canvas.height = document.getElementsByClassName('get_fromImage')[0].clientHeight - 40;
+  canvas.width = document.getElementsByTagName('main')[0].clientWidth - document.getElementsByClassName('scrollable')[0].clientWidth - 20;
   $(img).load(function () {
     // get the scale
     const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
@@ -12,9 +13,7 @@ function getPixes() {
     canvas.getContext('2d').drawImage(img, 0, 0, img.width * scale, img.height * scale);
     document.getElementsByClassName('wrapper')[0].width = img.width * scale;
     document.getElementsByClassName('wrapper')[0].height = img.height * scale;
-
     document.getElementsByClassName('covered_image')[0].width = img.width * scale;
-
   });
 
   $('.covered_image').click(function (event) {

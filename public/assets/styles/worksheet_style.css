@@ -16,7 +16,7 @@ body{
 .site{
   height: 100vh;
   display: grid;
-  grid-template-rows: 9vh 85vh 5vh;
+  grid-template-rows: 9vh 85vh 6vh;
   overflow: hidden;
 }
 
@@ -267,14 +267,19 @@ main{
 
 /*--------FOOTER---------*/
 footer{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
   height: 6vh;
   background: #282828; 
-  color: cyan;
-  width: 100%;
-  align-items: center;
+  color: #fff;
   z-index: 3;
+  width: 100%;
 }
-
+footer a{
+  height: 4vh;
+  width: 4vh;
+}
 .github-logo{
   height: 4vh;
 }

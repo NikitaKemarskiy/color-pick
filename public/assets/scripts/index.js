@@ -1,4 +1,4 @@
-function blowing_bulb( true_scale = 1 ) {
+function blowing_bulb() {
 
   $(".covered_image").blowup({
     "background": "transparent",
@@ -7,4 +7,4 @@ function blowing_bulb( true_scale = 1 ) {
     "border": "0px solid",
     "scale": 1
   })
-};
+}

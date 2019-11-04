@@ -273,22 +273,29 @@ main{
 
 /*--------FOOTER---------*/
 footer{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
   height: 6vh;
   background: #fff; 
   color: black;
   width: 100%;
   align-items: center;
   z-index: 3;
-    box-shadow: 0px 0px 20px 0px #797979;
+  box-shadow: 0px 0px 20px 0px #797979;
 
 }
 
+footer a{
+  height: 4vh;
+  width: 4vh;
+}
 .github-logo{
   height: 4vh;
 }
 
 .github-logo > path {
-  fill: #606060;
+  fill: black;
   transition: fill .2s linear;
 }
 
