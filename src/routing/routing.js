@@ -1,7 +1,7 @@
 // Modules
 const path = require('path');
 const sendFile = require('koa-sendfile');
-const koaRouter = require('@koa/router');
+const KoaRouter = require('@koa/router');
 
 // Libs
 const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
@@ -10,17 +10,17 @@ const colors = require(path.join(__dirname, '..', 'libs', 'colors'));
 const upload = require(path.join(__dirname, '..', 'init', 'multer'));
 
 // Router
-const router = new koaRouter();
+const router = new KoaRouter();
 
 // Constants
 const STATIC_PATH = path.join(__dirname, '..', '..', 'public');
 
 // Routes
-router.get('/', async (ctx) => {
+router.get('/', async(ctx) => {
 	await sendFile(ctx, path.join(STATIC_PATH, 'index.html'));
 });
 
-router.post('/colors', async (ctx) => {
+router.post('/colors', async(ctx) => {
 	const { getColors, pickColors } = colors;
 	try {
 		const data = await upload(ctx);

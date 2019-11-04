@@ -5,7 +5,7 @@ const koaMulter = require('@koa/multer');
 // Multer
 const upload = koaMulter({
 	storage: koaMulter.memoryStorage(),
-	fileFilter: function(req, file, callback) {
+	fileFilter(req, file, callback) {
 		const ext = path.extname(file.originalname);
 		if (ext !== '.jpg' && ext !== '.jpeg') {
 			return callback(new Error('Only JPEG are allowed'));

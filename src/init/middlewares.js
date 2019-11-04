@@ -26,7 +26,7 @@ async function init(app) {
 	// Routes
 	app.use(router.routes());
 
-	console.log(`=> Middlewares were initialized!`);
+	console.log('=> Middlewares were initialized!');
 }
 
 // Exports
