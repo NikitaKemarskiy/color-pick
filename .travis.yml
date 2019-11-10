@@ -17,5 +17,7 @@ install:
 script:
 - npm test
 after_success:
+- echo "Username ===> $DOCKER_USERNAME"
+- echo "Password ===> $DOCKER_PASSWORD"
 - docker build -t kemarskiy/color-pick:1.0 .
 - docker push kemarskiy/color-pick
