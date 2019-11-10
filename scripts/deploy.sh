@@ -1,2 +1,1 @@
-ssh -p 2222 nikita@77.47.209.52 -v
-docker run -p 80:80 kemarskiy/color-pick:1.0
+ssh -p 2222 nikita@77.47.209.52 "docker run -p 80:80 --name color-pick -d kemarskiy/color-pick:1.0"
