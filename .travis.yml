@@ -4,7 +4,7 @@ node_js:
 services:
 - docker
 env:
-- NODE_ENV=production USER=nikita HOST=77.47.209.52 PORT=2222
+- NODE_ENV=production
 addons:
   ssh_known_hosts:
   - 77.47.209.52:2222
@@ -25,3 +25,9 @@ before_install:
 - cp deploy_rsa ~/.ssh/deploy_rsa
 - chmod 600 ~/.ssh/deploy_rsa
 - ssh-add ~/.ssh/deploy_rsa
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: "deploy.sh"
+  on:
+    branch: master
