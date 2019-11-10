@@ -1,30 +1,28 @@
 language: node_js
 node_js:
-  - 12
+- 12
 services:
-  - docker
+- docker
 addons:
   ssh_known_hosts:
-    - secure: BmZozoGEmNBiLnvx+StlQSDB7KRAglmHkmMk4UvYTZUWdnVzah44103gTTddNg82j/5HB3Y9DRUKwsT/dkoz4FQmv3cyMA4Vd5V+2JNhzIyvSyxbKxEtkyTRtsT6uf2n0XQfIeA5tS1tHTW3BnPPBpiBhKY0WWxrfUo0cImPruvmjeF8LxQe7toYFwI65QS/Ko/eWBoPVFAHtCc/K8Bk3xkFVNlcPUR7qX8Pqa8Gys+lytpJxvGkrFZuQLoJe4urqbqSS38632XaK0WqhU5/fUhJHsNsvPjKHmVeAmkKbPq//d4zI57ee3AtV24/nBupbKzBpD5uptQKhNeqrjYno64TkJFom1ZHblaOXgGt80M9GbBksj/TeZh2SNvIl/T3t2AWASWKr6AERdibH7yBiWYXQ/2LuUC2Yey6caHFjHH/jqLFsb6fx87bJuvF2Tp9wJ8FoNx+ctnHHEjdVkLYLUYcd2oF2XBs2/pxhjNJQQbn1IwWsC7Y8wxWEQYTHHIA++xI/kWrZQ6D+fdKq7QIRFfOAmLttGMUmcH7eBE0rxmvLDQ3QGCordF+xTKU+3SJ1S/WLtuZe9g0K+mjxZceBr47ZcnO5wR7xfSnclvgLfe6HPZvZR1U4jmg0a4WRdkJ51twgxYFkNMsmaLVSdsEfBni68yigCkScAbGhIdcKZ0=
+  - secure: BmZozoGEmNBiLnvx+StlQSDB7KRAglmHkmMk4UvYTZUWdnVzah44103gTTddNg82j/5HB3Y9DRUKwsT/dkoz4FQmv3cyMA4Vd5V+2JNhzIyvSyxbKxEtkyTRtsT6uf2n0XQfIeA5tS1tHTW3BnPPBpiBhKY0WWxrfUo0cImPruvmjeF8LxQe7toYFwI65QS/Ko/eWBoPVFAHtCc/K8Bk3xkFVNlcPUR7qX8Pqa8Gys+lytpJxvGkrFZuQLoJe4urqbqSS38632XaK0WqhU5/fUhJHsNsvPjKHmVeAmkKbPq//d4zI57ee3AtV24/nBupbKzBpD5uptQKhNeqrjYno64TkJFom1ZHblaOXgGt80M9GbBksj/TeZh2SNvIl/T3t2AWASWKr6AERdibH7yBiWYXQ/2LuUC2Yey6caHFjHH/jqLFsb6fx87bJuvF2Tp9wJ8FoNx+ctnHHEjdVkLYLUYcd2oF2XBs2/pxhjNJQQbn1IwWsC7Y8wxWEQYTHHIA++xI/kWrZQ6D+fdKq7QIRFfOAmLttGMUmcH7eBE0rxmvLDQ3QGCordF+xTKU+3SJ1S/WLtuZe9g0K+mjxZceBr47ZcnO5wR7xfSnclvgLfe6HPZvZR1U4jmg0a4WRdkJ51twgxYFkNMsmaLVSdsEfBni68yigCkScAbGhIdcKZ0=
 env:
-  - NODE_ENV="production"
-  - USER="nikita"
-  - HOST="77.47.209.52"
-  - PORT="2222"
+- NODE_ENV=production USER=nikita HOST=77.47.209.52 PORT=2222
 install:
-  - npm install
-  - npm install -g eslint
-  - npm install -g mocha
+- npm install
+- npm install -g eslint
+- npm install -g mocha
 script:
-  - npm test
+- npm test
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t kemarskiy/color-pick:1.0 .
-  - docker push kemarskiy/color-pick
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker build -t kemarskiy/color-pick:1.0 .
+- docker push kemarskiy/color-pick
 before_install:
-  - openssl aes-256-cbc -K $encrypted_8a8f606118a6_key -iv $encrypted_8a8f606118a6_iv in id_rsa.enc -out id_rsa -d
-  - ssh-copy-id -i deploy_rsa.pub -p 2222 nikita@77.47.209.52
-  - eval "$(ssh-agent -s)"
-  - cp .travis/id_rsa ~/.ssh/id_rsa
-  - chmod 600 ~/.ssh/id_rsa
-  - ssh-add ~/.ssh/id_rsa
+- openssl aes-256-cbc -K $encrypted_8a8f606118a6_key -iv $encrypted_8a8f606118a6_iv
+  -in id_rsa.enc -out id_rsa -d
+- ssh-copy-id -i deploy_rsa.pub -p 2222 nikita@77.47.209.52
+- eval "$(ssh-agent -s)"
+- cp .travis/id_rsa ~/.ssh/id_rsa
+- chmod 600 ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
