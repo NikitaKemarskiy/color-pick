@@ -1,5 +1,7 @@
 # My directives
 config.json
+deploy_rsa
+deploy_rsa.pub
 
 # Logs
 *.log
