@@ -22,8 +22,7 @@ after_success:
   - docker build -t kemarskiy/color-pick:1.0 .
   - docker push kemarskiy/color-pick
 before_install:
-  - openssl aes-256-cbc -K $encrypted_8a8f606118a6_key -iv $encrypted_8a8f606118a6_iv
-  -in id_rsa.enc -out id_rsa -d
+  - openssl aes-256-cbc -K $encrypted_8a8f606118a6_key -iv $encrypted_8a8f606118a6_iv in id_rsa.enc -out id_rsa -d
   - ssh-copy-id -i deploy_rsa.pub -p 2222 nikita@77.47.209.52
   - eval "$(ssh-agent -s)"
   - cp .travis/id_rsa ~/.ssh/id_rsa
