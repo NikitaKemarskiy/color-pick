@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - 12
+services:
+  - docker
 env:
   - NODE_ENV="production"
 install:
@@ -9,3 +11,6 @@ install:
   - npm install -g mocha
 script:
   - npm test
+after_success:
+  - docker build -t kemarskiy/color-pick:1.0 .
+  - docker push kemarskiy/color-pick
