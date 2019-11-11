@@ -7,14 +7,18 @@
   text-align: justify;
 }
 #drop-area {
-  /* border: 2px dashed #ccc; */
-  border-radius: 20px;
-  width: 480px;
+  display:flex;
+  width: 40vw;
+  height: 25vh;
   margin: 50px auto;
-  background: #282828;
   padding: 20px;
+  background: #282828;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   color: white;
+  font-size: 1.6vw;
+  border-radius: 20px;
   transition: background-color .5s ease-out, box-shadow .25s ease-in, color .3s linear;
 }
 #drop-area.highlight {
@@ -22,7 +26,7 @@
   box-shadow: 0px 0px 20px 1px #70fdab;
   animation: hue 2s linear infinite backwards;
 }
-p {
+#drop-area p {
   margin-top: 0;
 }
 .my-form {

@@ -7,14 +7,18 @@
   text-align: justify;
 }
 #drop-area {
-  /* border: 2px dashed #ccc; */
+  display:flex;
   border-radius: 20px;
-  width: 480px;
+  width: 40vw;
+  height: 25vh;
   margin: 50px auto;
-  background: #fff;
   padding: 20px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
   color: black;
+  font-size: 1.6vw;
   transition: background-color .5s ease-out, box-shadow .25s ease-in, color .3s linear;
 }
 #drop-area.highlight {
