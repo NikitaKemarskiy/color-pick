@@ -41,16 +41,20 @@ body{
 
 
 /*--------BUTTONS---------*/
-
+.settings{
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 50%;
+  vertical-align: center;
+  padding: 0;
+}
 .menu_button{
   background: transparent;
   border: none;
   height: 48px;
   width: 48px;
   border-radius: 50%;
-  background: transparent;
-  color: white;
-  margin-left: 10px;
   vertical-align: center;
   padding: 0;
   text-align: center;
@@ -61,6 +65,7 @@ body{
   justify-content: center;
   cursor: pointer;
   animation-iteration-count: infinite;
+  position: relative;
 }
 .menu_button:active{
   background-color: #1F1F1F;
@@ -98,7 +103,7 @@ body{
 }
 
 
-.settings_button:hover{
+.settings_button:hover svg{
   -webkit-animation: rotating 1s linear infinite;
   -moz-animation: rotating 1s linear infinite;
   -ms-animation: rotating 1s linear infinite;
