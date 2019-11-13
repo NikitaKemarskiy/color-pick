@@ -1,13 +1,13 @@
 // Modules
 const path = require('path');
-const koa = require('koa');
+const Koa = require('koa');
 
 // Init
 const server = require(path.join(__dirname, 'init', 'server'));
 const middlewares = require(path.join(__dirname, 'init', 'middlewares'));
 
 // Koa
-const app = new koa();
+const app = new Koa();
 
 async function main() {
 	await server.init(app); // Init server

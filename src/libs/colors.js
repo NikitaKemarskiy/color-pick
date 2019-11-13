@@ -119,21 +119,18 @@ function getDifference(colorOne, colorTwo) {
 function sortByColor(colors, color) {
 	switch (color) {
 		case 'red': {
-			colors.sort((colorOne, colorTwo) => {
-				return colorOne.red - colorTwo.red;
-			});
+			colors.sort((colorOne, colorTwo) => colorOne.red -
+												colorTwo.red);
 			break;
 		}
 		case 'green': {
-			colors.sort((colorOne, colorTwo) => {
-				return colorOne.green - colorTwo.green;
-			});
+			colors.sort((colorOne, colorTwo) => colorOne.green -
+												colorTwo.green);
 			break;
 		}
 		case 'blue': {
-			colors.sort((colorOne, colorTwo) => {
-				return colorOne.blue - colorTwo.blue;
-			});
+			colors.sort((colorOne, colorTwo) => colorOne.blue -
+												colorTwo.blue);
 			break;
 		}
 	}
