@@ -15,6 +15,8 @@ function set_window_open(menu) {
   menu.style.opacity = 1;
   menu.style.visibility = 'visible';
   menu.childNodes[1].style.opacity = 1;
+  document.querySelector('.menu_button.settings_button').querySelector('svg').style.webkitAnimation = "rotating 2s linear infinite";
+  document.querySelector('.menu_button.settings_button').querySelector('svg').style.animation = "rotating 2s linear infinite";
 }
 
 function set_window_close(menu) {
@@ -22,4 +24,7 @@ function set_window_close(menu) {
   menu.style.opacity = 0;
   menu.style.visibility = 'hidden';
   menu.childNodes[1].style.opacity = 0;
+  document.querySelector('.menu_button.settings_button').querySelector('svg').style.webkitAnimation = "";
+  document.querySelector('.menu_button.settings_button').querySelector('svg').style.animation = "";
+
 }

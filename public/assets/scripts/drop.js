@@ -67,6 +67,7 @@ function upload() {
     document.getElementsByClassName('covered_image')[0].setAttribute('src', img.src);
     getPixes();
     blowing_bulb();
+    console.log(uploaded_img);
     fetch(req)
       .then((response) => {
         console.log('OKAY!');

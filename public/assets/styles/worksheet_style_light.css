@@ -60,7 +60,7 @@ body{
   vertical-align: center;
   padding: 0;
   text-align: center;
-  transition: background-color .1s linear;
+  transition: background-color .2s linear;
   outline: none;
   display: flex;
   align-items: center;
@@ -106,11 +106,11 @@ body{
 
 
 .settings_button:hover svg{
-  -webkit-animation: rotating 1s linear infinite;
-  -moz-animation: rotating 1s linear infinite;
-  -ms-animation: rotating 1s linear infinite;
-  -o-animation: rotating 1s linear infinite;
-  animation: rotating 1s linear infinite;
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
 }
 
 
@@ -191,14 +191,24 @@ header{
   z-index: -1;
   border-radius: 3px;
   color: #e7e7e8;
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   opacity: 0;
   transition: opacity .1s ease-in-out;
   font-size: 200px;
   font-family: 'Roboto', sans-serif;
   /* transition: z-index 20s ease-in-out; */
 }
+
+
+.copy_notif span{
+  padding: 0px 40px;
+  background: linear-gradient(to right, #50505011, #5050508c, #50505011);
+  border-radius: 1em;
+  color: #fff;
+}
+
 
 
 
@@ -249,12 +259,12 @@ main{
   text-align: right;
   margin: 0;
   padding: 0;
-  transition: transform .1s linear;
+  transition: transform .2s ease-in-out,  background-color .2s ease-in-out;
   color: white;
 }
 .color:nth-child(1){
   grid-column: 1/3;
-  transition: background-color .1s ease-in-out;
+  transition: background-color .2s ease-in-out;
 }
 
 .color:hover{
@@ -266,8 +276,10 @@ main{
   opacity: 1;
 }
 
-
-
+.color:hover .color_text{
+  background: #23af0066;
+  animation: hue 2s linear infinite backwards;
+}
 
 
 

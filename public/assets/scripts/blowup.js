@@ -70,7 +70,6 @@ $(function ($) {
 
     // Mouse motion on image
     $element.mousemove(function (e) {
-
       // Lens position coordinates
       var lensX = e.pageX - $options.width / 2;
       var lensY = e.pageY - $options.height / 2;
@@ -96,7 +95,37 @@ $(function ($) {
       });
 
     })
+    $element.bind('mousewheel', function (e) {
+      if (e.originalEvent.wheelDelta / 120 > 0) {
+        $options.scale = $options.scale + 0.1;
+      } 
+      else {
+        $options.scale = $options.scale - 0.1;
+      };
+      var lensX = e.pageX - $options.width / 2;
+      var lensY = e.pageY - $options.height / 2;
 
+      // Relative coordinates of image
+      var relX = e.pageX - $(this).offset().left;
+      var relY = e.pageY - $(this).offset().top;
+
+      // Zoomed image coordinates 
+      var zoomX = -Math.floor(relX / $element.width() * (NATIVE_IMG.width * $options.scale) - $options.width / 2);
+      var zoomY = -Math.floor(relY / $element.height() * (NATIVE_IMG.height * $options.scale) - $options.height / 2);
+
+      var backPos = zoomX + "px " + zoomY + "px";
+      var backgroundSize = NATIVE_IMG.width * $options.scale + "px " + NATIVE_IMG.height * $options.scale + "px";
+
+      // Apply styles to lens
+      $blowupLens.css({
+        left: lensX,
+        top: lensY,
+        "background-image": "url(" + $IMAGE_URL + ")",
+        "background-size": backgroundSize,
+        "background-position": backPos
+      });
+      }
+    );
     // Hide magnification lens
     $element.mouseleave(function () {
       $blowupLens.css("visibility", "hidden");
