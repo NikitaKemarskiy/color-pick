@@ -1,5 +1,4 @@
 function set_window() {
-  console.log('i work');
   const setting_menu = document.querySelector('#menu_from_button');
   const computed_style = window.getComputedStyle(setting_menu);
   if (computed_style.visibility == 'hidden') {
@@ -26,5 +25,4 @@ function set_window_close(menu) {
   menu.childNodes[1].style.opacity = 0;
   document.querySelector('.menu_button.settings_button').querySelector('svg').style.webkitAnimation = "";
   document.querySelector('.menu_button.settings_button').querySelector('svg').style.animation = "";
-
 }

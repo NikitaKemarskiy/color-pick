@@ -97,10 +97,13 @@ $(function ($) {
     })
     $element.bind('mousewheel', function (e) {
       if (e.originalEvent.wheelDelta / 120 > 0) {
-        $options.scale = $options.scale + 0.1;
+        increase(e);
       } 
       else {
-        $options.scale = $options.scale - 0.1;
+        if ($options.scale === 1) {
+          return;
+        }
+        decrease(e);
       };
       var lensX = e.pageX - $options.width / 2;
       var lensY = e.pageY - $options.height / 2;
@@ -126,6 +129,12 @@ $(function ($) {
       });
       }
     );
+    function increase(e) {
+      $options.scale = $options.scale + 0.1;
+    }
+    function decrease(e) {
+      $options.scale = $options.scale - 0.1;
+    }
     // Hide magnification lens
     $element.mouseleave(function () {
       $blowupLens.css("visibility", "hidden");

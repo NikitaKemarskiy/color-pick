@@ -61,20 +61,17 @@ function upload() {
     cache: false
   });
   // load() functions
-  $('body').load("2.html", () => {
+  $('main').load("2.html", () => {
     const img = new Image();
     img.src = URL.createObjectURL(uploaded_img);
     document.getElementsByClassName('covered_image')[0].setAttribute('src', img.src);
     getPixes();
     blowing_bulb();
-    console.log(uploaded_img);
     fetch(req)
       .then((response) => {
-        console.log('OKAY!');
         response.json().then((data) => {
           fill_data(data);
           setColorInBlock();
-          console.log(1);
         });
       })
       .catch((err) => {
