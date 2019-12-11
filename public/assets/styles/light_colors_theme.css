@@ -1,0 +1,164 @@
+body{
+  background: #dddddd;
+}
+
+
+/*---------FORM------------*/
+
+.main_form{
+  background: #dddddd;
+}
+
+
+/*--------BUTTONS---------*/
+
+.menu_button{
+  background: transparent;
+}
+.menu_button:hover{
+  background-color: #dddddd;
+}
+
+
+
+/*--------HEADER---------*/
+header{
+  background: #fff;
+  color: black;
+  box-shadow: 0px 0px 20px 0px #797979;
+}
+
+.header_project-name a{
+  color: black;
+}
+
+
+.header_project-name a:hover{
+  color: #2ecc71;
+}
+
+
+.settings_button path, circle{
+  fill: #5F6368;
+}
+
+.help_button path{
+  fill: #5F6368;
+}
+
+
+
+/*---------MAIN-----------*/
+
+
+.copy_notif{
+  background: #202124;
+  color: #e7e7e8;
+}
+
+
+.copy_notif span{
+  background: linear-gradient(to right, #50505011, #5050508c, #50505011);
+  color: #fff;
+}
+
+
+
+
+main{
+  background: #dddddd;
+}
+
+
+.color_text{
+  background: #1f1f1f66;
+}
+
+.color{
+  color: white;
+}
+
+.color:hover{
+  box-shadow: 0px 0px 20px 5px #202020;
+}
+
+.color:hover .color_text{
+  background: #23af0066;
+}
+
+
+
+/*--------FOOTER---------*/
+footer{
+  background: #fff; 
+  color: black;
+  box-shadow: 0px 0px 20px 0px #797979;
+}
+
+
+.github-logo > path {
+  fill: #5F6368;
+}
+
+
+.github-logo:hover path{
+  fill: #414346;
+}
+
+.frontend-dev-logo:hover path{
+    fill: #198dc8;
+}
+.backend-dev-logo:hover path{
+    fill: #198dc8;
+}
+
+
+
+
+#menu_from_button{
+  background: #dddddd;
+}
+
+.check:before{
+  background: #fff;
+}
+
+
+.check{
+  background: #282828;
+}
+
+input[type="checkbox"]:checked ~ .check{
+  background: #ffffff;
+}
+
+
+.check:after{
+  background: #dddddd;
+}
+
+
+.note {
+  color: #333;
+}
+#drop-area {
+  background: #fff;
+  color: black;
+}
+#drop-area.highlight {
+  background-color: #1a5734;
+  box-shadow: 0px 0px 20px 1px #1a5734;
+}
+
+#drop-area.highlight p {
+  color: white;
+}
+
+.button {
+  background: #cccccc;
+}
+.button:hover {
+  background-color: #1a5734;
+  color: white;
+  box-shadow: 0px 0px 20px 1px #1a5734;
+}

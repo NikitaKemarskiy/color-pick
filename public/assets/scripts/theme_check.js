@@ -34,16 +34,12 @@ function checker(themeSwitch) {
 
 function setLight(themeSwitch) {
   themeSwitch.checked = true;
-  document.getElementById('worksheet').setAttribute('href', 'assets/styles/worksheet_style_light.css');
-  document.getElementById('form').setAttribute('href', 'assets/styles/form_style_light.css');
-  document.getElementById('submenu').setAttribute('href', 'assets/styles/submenu_light.css');
+  document.getElementById('theme_stylesheet').setAttribute('href', 'assets/styles/light_colors_theme.css');
   localStorage.setItem('themeSwitch', 'light');
 }
 
 function setDark(themeSwitch) {
   themeSwitch.checked = false;
-  document.getElementById('worksheet').setAttribute('href', 'assets/styles/worksheet_style.css');
-  document.getElementById('form').setAttribute('href', 'assets/styles/form_style.css');
-  document.getElementById('submenu').setAttribute('href', 'assets/styles/submenu.css');
+  document.getElementById('theme_stylesheet').setAttribute('href', 'assets/styles/dark_colors_theme.css');
   localStorage.setItem('themeSwitch', 'dark');
 }

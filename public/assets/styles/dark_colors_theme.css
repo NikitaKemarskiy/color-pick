@@ -1,0 +1,146 @@
+body{
+  background: #353535;
+}
+
+/*---------FORM------------*/
+
+.main_form{
+  background: #282828;
+}
+
+
+/*--------BUTTONS---------*/
+
+.menu_button{
+  background: transparent;
+}
+.menu_button:hover{
+  background-color: #1F1F1F;
+}
+
+
+
+
+
+/*--------HEADER---------*/
+header{
+  background: #282828;
+  color: white;
+}
+
+
+.header_project-name a{
+  color: white;
+}
+
+
+.header_project-name a:hover{
+  color: #2ecc71;
+}
+
+
+
+
+
+
+
+
+/*---------MAIN-----------*/
+
+
+.copy_notif{
+  background: #202124;
+  color: #e7e7e8;
+}
+
+.copy_notif span{
+  background: linear-gradient(to right, #50505011, #5050508c, #50505011);
+  color: #fff;
+}
+
+
+main{
+  background: #1F1F1F;
+}
+
+
+.color_text{
+  background: #1f1f1f66;
+}
+
+.color{
+  color: white;
+}
+
+.color:hover{
+  box-shadow: 0px 0px 20px 5px #202020;
+  
+}
+
+
+.color:hover .color_text{
+  background: #18770066;
+}
+
+
+/*--------FOOTER---------*/
+footer{
+  background: #282828; 
+  color: #fff;
+}
+
+.github-logo:hover path{
+  fill: #b9b9b9;
+}
+
+.frontend-dev-logo:hover path{
+    fill: #198dc8;
+}
+
+.backend-dev-logo:hover path{
+    fill: #198dc8;
+}
+
+
+
+.note {
+  color: #333;
+}
+#drop-area {
+  background: #282828;
+  color: white;
+}
+#drop-area.highlight {
+  background-color: #70fdab;
+}
+.button {
+  background: black;
+}
+.button:hover {
+  background-color: #70fdab;
+  color: black;
+  box-shadow: 0px 0px 20px 1px #70fdab;
+}
+
+
+/*THEME SUBMENU*/
+#menu_from_button{
+  background: #1F1F1F;
+}
+
+.check:before{
+  background: #fff;
+}
+
+
+.check{
+  background: #282828;
+}
+
+input[type="checkbox"]:checked ~ .check{
+  background: #ffffff;
+}
+
+.check:after{
+  background: #1f1f1f;
+}
