@@ -21,7 +21,7 @@
   "dependencies": {
     "@koa/multer": "^2.0.0",
     "@koa/router": "^8.0.1",
-    "jpeg-js": "^0.3.6",
+    "jpeg-js": "^0.4.4",
     "koa": "^2.8.2",
     "koa-bodyparser": "^4.2.1",
     "koa-sendfile": "^2.0.1",
